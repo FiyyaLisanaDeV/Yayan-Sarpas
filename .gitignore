@@ -1,0 +1,38 @@
+# Rust
+/target
+**/*.rs.bk
+
+# Env & secrets
+.env
+
+# Node / Svelte
+node_modules/
+dist/
+.vite/
+
+# Tauri
+clients/desktop-tauri/src-tauri/target
+clients/desktop-tauri/src-tauri/gen/schemas
+
+# Runtime data
+/data/uploads/
+/data/*.db
+*.db
+*.db-journal
+
+# OS
+.DS_Store
+Thumbs.db
+
+# sqlx offline cache (digenerate via cargo sqlx prepare)
+.sqlx/
+
+# Local tools / agent / IDE state
+.commandcode/
+.agents/
+.checkpoints/
+.stitch.json
+.vscode/
+
+# Local cargo config (may contain dev DB credentials)
+.cargo/config.toml

@@ -1,0 +1,27 @@
+[package]
+name = "sarpras-seed"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+# CATATAN: crate ini TIDAK depend pada sarpras-shared.
+# Ia harus bisa dikompilasi SEBELUM skema DB ada (compile-time checking sqlx
+# di shared/api butuh skema), lalu menjalankan migrasi + seeding data.
+
+[[bin]]
+name = "sarpras-seed"
+path = "src/main.rs"
+
+[dependencies]
+tokio.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sqlx.workspace = true
+figment.workspace = true
+dotenvy.workspace = true
+argon2.workspace = true
+rand.workspace = true
+calamine.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true

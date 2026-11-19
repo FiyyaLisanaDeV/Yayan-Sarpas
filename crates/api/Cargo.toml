@@ -1,0 +1,46 @@
+[package]
+name = "sarpras-api"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "sarpras-api"
+path = "src/main.rs"
+
+[lib]
+name = "sarpras_api"
+path = "src/lib.rs"
+
+[dependencies]
+sarpras-shared = { workspace = true }
+sarpras-worker = { workspace = true }
+tokio.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+chrono.workspace = true
+uuid.workspace = true
+thiserror.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+figment.workspace = true
+sqlx.workspace = true
+axum.workspace = true
+tower.workspace = true
+tower-http.workspace = true
+jsonwebtoken.workspace = true
+argon2.workspace = true
+rand.workspace = true
+moka.workspace = true
+bigdecimal.workspace = true
+validator.workspace = true
+async-trait.workspace = true
+futures-util = "0.3"
+calamine.workspace = true
+rust_xlsxwriter.workspace = true
+qrcode = { version = "0.14", default-features = false, features = ["image"] }
+image = { version = "0.25", default-features = false, features = ["png"] }
+
+[dev-dependencies]
+tower = { version = "0.5", features = ["util"] }

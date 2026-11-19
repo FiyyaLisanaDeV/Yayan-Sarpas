@@ -1,0 +1,228 @@
+/*
+ * Design tokens SARPRAS & ALKES.
+ *
+ * Palet "petrol teal" dipilih dengan alasan domain: RSUD Kota Kendari,
+ * kota teluk — warna laut dalam yang tenang, jauh dari refleks
+ * "kesehatan = putih + biru kalem". Semua pasangan teks/permukaan
+ * dihitung memenuhi WCAG AA (lihat docs/PENGEMBANG.md).
+ */
+:root {
+  --brand: #00695c;
+  --brand-dark: #004d43;
+  --brand-light: #e0f2f1;
+  --bg: #f4f7f6;
+  --surface: #ffffff;
+  --border: #dce5e2;
+  --text: #16302b;
+  --text-muted: #55675f;
+  --danger: #c62828;
+  --danger-dark: #8e1c1c;
+  --success: #2e7d32;
+  --warning: #b07800;
+  --radius: 10px;
+  --shadow: 0 1px 3px rgba(16, 24, 40, 0.06), 0 1px 2px rgba(16, 24, 40, 0.04);
+  font-family: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+h1, h2, h3, h4 {
+  margin: 0 0 0.4em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+h1 { font-size: 1.65rem; }
+h2 { font-size: 1.25rem; }
+h3 { font-size: 1.02rem; }
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.5rem 0.9rem;
+  background: var(--brand);
+  color: #fff;
+  transition: background 0.15s ease;
+}
+
+button:hover:not(:disabled) { background: var(--brand-dark); }
+button:disabled { opacity: 0.55; cursor: not-allowed; }
+
+/* Ring fokus terlihat untuk semua kontrol — kontras 9.8:1 di atas putih. */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--brand-dark);
+  outline-offset: 2px;
+  border-color: var(--brand-dark);
+}
+
+button.secondary {
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--border);
+}
+button.secondary:hover:not(:disabled) { background: #f4f8f6; }
+
+button.danger { background: var(--danger); }
+button.danger:hover:not(:disabled) { background: var(--danger-dark); }
+
+button.small { padding: 0.3rem 0.6rem; font-size: 0.85rem; }
+
+/* Kontrol form minimal 1rem: mencegah iOS Safari auto-zoom saat fokus. */
+input, select, textarea {
+  font: inherit;
+  font-size: 1rem;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  width: 100%;
+}
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+th {
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  background: #f7faf9;
+}
+
+td {
+  padding: 0.65rem 0.75rem;
+  border-bottom: 1px solid #eef3f1;
+  vertical-align: middle;
+}
+
+tbody tr:hover { background: #f6faf8; }
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--brand-light);
+  color: var(--brand-dark);
+}
+
+.badge.inactive { background: #eef2f1; color: var(--text-muted); }
+.badge.warn { background: #fdf3dd; color: #6d4d00; }
+.badge.danger { background: #fdecec; color: var(--danger-dark); }
+.badge.ok { background: #e6f2e7; color: #1c4a1f; }
+
+.alert {
+  padding: 0.7rem 0.9rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-bottom: 0.9rem;
+}
+
+.alert.error { background: #fdecec; color: var(--danger-dark); border: 1px solid #f5c6c6; }
+.alert.success { background: #e6f2e7; color: #1c4a1f; border: 1px solid #bfdcbf; }
+.alert.info { background: var(--brand-light); color: var(--brand-dark); border: 1px solid #b2d8d4; }
+
+.muted { color: var(--text-muted); font-size: 0.85rem; }
+.row { display: flex; gap: 0.75rem; align-items: center; }
+.row.wrap { flex-wrap: wrap; }
+.spacer { flex: 1; }
+
+.toolbar {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  margin-bottom: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.toolbar input[type='search'] { max-width: 320px; }
+
+.pagination {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 0.9rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.pagination button { padding: 0.25rem 0.55rem; font-size: 0.85rem; }
+
+dialog {
+  border: none;
+  border-radius: var(--radius);
+  padding: 0;
+  box-shadow: 0 20px 40px rgba(16, 24, 40, 0.2);
+  width: min(560px, 92vw);
+}
+
+dialog::backdrop { background: rgba(16, 24, 40, 0.45); }
+
+.dialog-body { padding: 1.25rem; }
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  padding: 0.9rem 1.25rem;
+  border-top: 1px solid var(--border);
+  background: #f7faf9;
+}
+
+.field { margin-bottom: 0.9rem; }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+
+/* Tautan aksi (btn-link) — dipakai banyak layar; satu definisi global. */
+.btn-link {
+  background: var(--brand);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  display: inline-block;
+}
+.btn-link:hover { background: var(--brand-dark); color: #fff; }
